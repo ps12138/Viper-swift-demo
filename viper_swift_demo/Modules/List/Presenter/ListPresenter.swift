@@ -18,10 +18,10 @@ class ListPresenter {
     
     func updateUserInterfaceWithUpcomingItems(upcomingItems: [UpcomingItem]) {
         let upcomingDisplayData = upcomingDisplayDataWithItems(upcomingItems)
-        userInterface?.showUpcomingDisplayData(upcomingDisplayData)
+        userInterface?.show(upcomingDispalyData: upcomingDisplayData)
     }
     
-    func upcomingDisplayDataWithItems(upcomingItems: [UpcomingItem]) -> UpcomingDisplayData {
+    func upcomingDisplayDataWithItems(_ upcomingItems: [UpcomingItem]) -> UpcomingDisplayData {
         let collection = UpcomingDisplayDataCollection()
         collection.addUpcomingItems(upcomingItems)
         return collection.collectedDisplayData()

@@ -25,6 +25,14 @@ struct UpcomingDisplaySection {
 }
 
 
+extension UpcomingDisplaySection {
+    var count: Int {
+        return items.count
+    }
+}
+
+
+
 extension UpcomingDisplaySection: Equatable {
     static func ==(left: UpcomingDisplaySection, right: UpcomingDisplaySection) -> Bool {
         

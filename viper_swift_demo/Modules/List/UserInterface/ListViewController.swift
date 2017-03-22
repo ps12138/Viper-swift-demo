@@ -24,7 +24,7 @@ class ListViewController: UITableViewController {
         
     // MARK: - properties
     var eventHandler: ListModuleInterface?
-    var dataProperty: UpcomingDispalyData?
+    var dataProperty: UpcomingDisplayData?
     var strongTableView: UITableView?
     
     
@@ -82,7 +82,7 @@ extension ListViewController {
     /// - Returns: titleForHeaderInSection, String?
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        if let upcomingSectionTitle = dataProperty?.section[section].name {
+        if let upcomingSectionTitle = dataProperty?.sections[section].name {
             return upcomingSectionTitle
         }
         return nil
@@ -92,13 +92,13 @@ extension ListViewController {
     /// reuse cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let upcomingSection = dataProperty?.sections[indexPath.section],
-            let upcomingItem = upcomingSection!.items[indexPath.row] {
+        if let upcomingSection = dataProperty?.sections[indexPath.section] {
             
+            let upcomingItem = upcomingSection.items[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: ListEntryCellId, for: indexPath) as UITableViewCell
             cell.textLabel?.text = upcomingItem.title
-            cell.datailTextLabel?.text = upcomingItem.text = upcomingItem.dueDate
-            cell.imageView?.image = UIImage(named: upcomingSection!.imageName)
+            cell.detailTextLabel?.text = upcomingItem.dueDate
+            cell.imageView?.image = UIImage(named: upcomingSection.imageName)
             cell.selectionStyle = UITableViewCellSelectionStyle.none
             return cell
         }
