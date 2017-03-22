@@ -41,7 +41,6 @@
 		10F992661E822CB900165014 /* AddPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F992651E822CB900165014 /* AddPresenter.swift */; };
 		10F992691E822DC300165014 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F992671E822DC300165014 /* AddViewController.swift */; };
 		10F9926A1E822DC300165014 /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10F992681E822DC300165014 /* AddViewController.xib */; };
-		10F9926C1E8235AC00165014 /* AddWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9926B1E8235AC00165014 /* AddWireframe.swift */; };
 		10F9926F1E823DCD00165014 /* AddPresentationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9926E1E823DCD00165014 /* AddPresentationTransition.swift */; };
 		10F992711E823E9400165014 /* AddDismissalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F992701E823E9400165014 /* AddDismissalTransition.swift */; };
 /* End PBXBuildFile section */
@@ -104,7 +103,6 @@
 		10F992651E822CB900165014 /* AddPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPresenter.swift; sourceTree = "<group>"; };
 		10F992671E822DC300165014 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		10F992681E822DC300165014 /* AddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddViewController.xib; sourceTree = "<group>"; };
-		10F9926B1E8235AC00165014 /* AddWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWireframe.swift; sourceTree = "<group>"; };
 		10F9926E1E823DCD00165014 /* AddPresentationTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPresentationTransition.swift; sourceTree = "<group>"; };
 		10F992701E823E9400165014 /* AddDismissalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDismissalTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -227,7 +225,6 @@
 				10F9925C1E8228E400165014 /* UserInterface */,
 				10F9925D1E8228F600165014 /* AddModuleInterface.swift */,
 				10F9925F1E82293600165014 /* AddModuleDelegate.swift */,
-				10F9926B1E8235AC00165014 /* AddWireframe.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -501,7 +498,6 @@
 				10DFB57A1E810A02004423B9 /* Clock.swift in Sources */,
 				10DFB57E1E810C5E004423B9 /* ManagedTodoItem.swift in Sources */,
 				10F992661E822CB900165014 /* AddPresenter.swift in Sources */,
-				10F9926C1E8235AC00165014 /* AddWireframe.swift in Sources */,
 				10F992711E823E9400165014 /* AddDismissalTransition.swift in Sources */,
 				10F992601E82293600165014 /* AddModuleDelegate.swift in Sources */,
 				10F992621E822A4A00165014 /* AddInteractor.swift in Sources */,
