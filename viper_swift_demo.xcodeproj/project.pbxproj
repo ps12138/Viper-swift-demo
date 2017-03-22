@@ -43,6 +43,7 @@
 		10F9926A1E822DC300165014 /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10F992681E822DC300165014 /* AddViewController.xib */; };
 		10F9926F1E823DCD00165014 /* AddPresentationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9926E1E823DCD00165014 /* AddPresentationTransition.swift */; };
 		10F992711E823E9400165014 /* AddDismissalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F992701E823E9400165014 /* AddDismissalTransition.swift */; };
+		10F992751E82470000165014 /* AddWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F992741E82470000165014 /* AddWireframe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		10F992681E822DC300165014 /* AddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddViewController.xib; sourceTree = "<group>"; };
 		10F9926E1E823DCD00165014 /* AddPresentationTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPresentationTransition.swift; sourceTree = "<group>"; };
 		10F992701E823E9400165014 /* AddDismissalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDismissalTransition.swift; sourceTree = "<group>"; };
+		10F992741E82470000165014 /* AddWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWireframe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 				10F9925B1E8228E400165014 /* Presenter */,
 				10F9925C1E8228E400165014 /* UserInterface */,
 				10F9925D1E8228F600165014 /* AddModuleInterface.swift */,
+				10F992741E82470000165014 /* AddWireframe.swift */,
 				10F9925F1E82293600165014 /* AddModuleDelegate.swift */,
 			);
 			path = Add;
@@ -496,6 +499,7 @@
 				10DFB5801E810CE3004423B9 /* CoreDataStore.swift in Sources */,
 				10F992571E8224F800165014 /* ListDataManager.swift in Sources */,
 				10DFB57A1E810A02004423B9 /* Clock.swift in Sources */,
+				10F992751E82470000165014 /* AddWireframe.swift in Sources */,
 				10DFB57E1E810C5E004423B9 /* ManagedTodoItem.swift in Sources */,
 				10F992661E822CB900165014 /* AddPresenter.swift in Sources */,
 				10F992711E823E9400165014 /* AddDismissalTransition.swift in Sources */,
