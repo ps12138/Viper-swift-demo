@@ -10,8 +10,8 @@ import Foundation
 
 
 struct UpcomingDisplayItem {
-    let title: String = ""
-    let dueDate: String = ""
+    var title: String = ""
+    var dueDate: String = ""
 
     init(title: String, dueDate: String) {
         self.title = title

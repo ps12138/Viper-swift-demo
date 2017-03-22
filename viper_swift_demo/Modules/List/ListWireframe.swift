@@ -36,7 +36,9 @@ class ListWireframe {
     
     ///
     func presentAddInterface() {
-        addWireframe?.presentAddInterfaceFromViewCOntroller(listViewController)
+        if let listViewController = listViewController {
+            addWireframe?.presentAddInterfaceFromViewController(viewController: listViewController)
+        }
     }
     
     // MARK: - private methods

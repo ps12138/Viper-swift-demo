@@ -117,7 +117,7 @@ extension ListViewController: ListViewInterface {
     
     /// showNoConentMessage placeholder
     func show(noContentMessage title: String) {
-        view = noContentView
+        view = UIView()
     }
     
     /// show data

@@ -63,12 +63,11 @@ extension ListPresenter: ListModuleInterface {
 //MARK: - Delegation AddModuleDelegate
 extension ListPresenter: AddModuleDelegate {
     
-    func addModleDidCancelAddAction() {
+    func addModuleDidCancelAddAction() {
         
     }
-    
     func addModuleDidSaveAddAction() {
-        updateView()
+        self.updateView()
     }
 }
 
