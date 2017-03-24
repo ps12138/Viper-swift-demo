@@ -9,17 +9,24 @@
 import Foundation
 
 class AddPresenter {
+    
+    // MARK: - Properties owned
     var addInteractor : AddInteractor?
-    var addWireframe : AddWireframe?
-    var addModuleDelegate : AddModuleDelegate?
+    
+    // MARK: - Properties connecting
+    weak var addWireframe : AddWireframe?
+    
+    // MARK: - Delegate
+    weak var addModuleDelegate : AddModuleDelegate?
     
     
-    func configureUserInterfaceForPresentation(_ addViewUserInterface: AddViewInterface) {
-        addViewUserInterface.set(minDueDate: Date())
+    func configureAddView(_ toAddView: PresenterToAddViewDelegate) {
+        toAddView.set(minDueDate: Date())
     }
 }
 
-extension AddPresenter: AddModuleInterface {
+// MARK: - AddViewToPresenterDelegate
+extension AddPresenter: AddViewToPresenterDelegate {
     
     func cancelAddAction() {
         addWireframe?.dismissAddInterface()

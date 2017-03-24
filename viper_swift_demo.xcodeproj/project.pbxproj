@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1083E45B1E825C5E00AB3DDB /* RealmTodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1083E45A1E825C5E00AB3DDB /* RealmTodoItem.swift */; };
+		1083E49F1E83A2C200AB3DDB /* RealmStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1083E49E1E83A2C200AB3DDB /* RealmStore.swift */; };
+		1083E4A11E83B5F600AB3DDB /* ListViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1083E4A01E83B5F600AB3DDB /* ListViewInterface.swift */; };
+		1083E4A31E83C06B00AB3DDB /* AddViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1083E4A21E83C06B00AB3DDB /* AddViewInterface.swift */; };
 		10DFB5401E8107E8004423B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DFB53F1E8107E8004423B9 /* AppDelegate.swift */; };
 		10DFB5451E8107E8004423B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10DFB5431E8107E8004423B9 /* Main.storyboard */; };
 		10DFB5471E8107E8004423B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10DFB5461E8107E8004423B9 /* Assets.xcassets */; };
@@ -15,14 +19,9 @@
 		10DFB5601E8107E8004423B9 /* viper_swift_demoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DFB55F1E8107E8004423B9 /* viper_swift_demoUITests.swift */; };
 		10DFB56F1E810843004423B9 /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DFB56E1E810843004423B9 /* AppDependencies.swift */; };
 		10DFB57A1E810A02004423B9 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DFB5791E810A02004423B9 /* Clock.swift */; };
-		10DFB57C1E810AB8004423B9 /* TodoItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DFB57B1E810AB8004423B9 /* TodoItemModel.swift */; };
-		10DFB57E1E810C5E004423B9 /* ManagedTodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DFB57D1E810C5E004423B9 /* ManagedTodoItem.swift */; };
-		10DFB5801E810CE3004423B9 /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DFB57F1E810CE3004423B9 /* CoreDataStore.swift */; };
-		10DFB5831E811746004423B9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10DFB5821E811746004423B9 /* CoreData.framework */; };
-		10DFB5861E8117B5004423B9 /* TODO.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10DFB5841E8117B5004423B9 /* TODO.xcdatamodeld */; };
+		10DFB57C1E810AB8004423B9 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DFB57B1E810AB8004423B9 /* TodoItem.swift */; };
 		10DFB5881E811A03004423B9 /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DFB5871E811A03004423B9 /* RootWireframe.swift */; };
 		10DFB58A1E811B8E004423B9 /* Calendar+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DFB5891E811B8E004423B9 /* Calendar+Additions.swift */; };
-		10F992401E81F3C400165014 /* ListModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9923F1E81F3C400165014 /* ListModuleInterface.swift */; };
 		10F992441E81F64500165014 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F992421E81F64500165014 /* ListViewController.swift */; };
 		10F992451E81F64500165014 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10F992431E81F64500165014 /* ListViewController.xib */; };
 		10F992481E82022F00165014 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F992471E82022F00165014 /* ListPresenter.swift */; };
@@ -33,9 +32,7 @@
 		10F992531E8221E200165014 /* UpcomingDisplayDataCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F992521E8221E200165014 /* UpcomingDisplayDataCollection.swift */; };
 		10F992571E8224F800165014 /* ListDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F992541E8224F800165014 /* ListDataManager.swift */; };
 		10F992581E8224F800165014 /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F992551E8224F800165014 /* ListInteractor.swift */; };
-		10F992591E8224F800165014 /* UpcomingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F992561E8224F800165014 /* UpcomingItem.swift */; };
 		10F9925E1E8228F600165014 /* AddModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9925D1E8228F600165014 /* AddModuleInterface.swift */; };
-		10F992601E82293600165014 /* AddModuleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9925F1E82293600165014 /* AddModuleDelegate.swift */; };
 		10F992621E822A4A00165014 /* AddInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F992611E822A4A00165014 /* AddInteractor.swift */; };
 		10F992641E822AC300165014 /* AddDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F992631E822AC300165014 /* AddDataManager.swift */; };
 		10F992661E822CB900165014 /* AddPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F992651E822CB900165014 /* AddPresenter.swift */; };
@@ -44,6 +41,9 @@
 		10F9926F1E823DCD00165014 /* AddPresentationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9926E1E823DCD00165014 /* AddPresentationTransition.swift */; };
 		10F992711E823E9400165014 /* AddDismissalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F992701E823E9400165014 /* AddDismissalTransition.swift */; };
 		10F992751E82470000165014 /* AddWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F992741E82470000165014 /* AddWireframe.swift */; };
+		10F992781E82517000165014 /* ListEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F992761E82517000165014 /* ListEntryCell.swift */; };
+		10F992791E82517000165014 /* ListEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10F992771E82517000165014 /* ListEntryCell.xib */; };
+		F1ADB9DD796792DF18CD8AB1 /* Pods_viper_swift_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2F07BAD387279DA81CAA8A1 /* Pods_viper_swift_demo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +64,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1083E45A1E825C5E00AB3DDB /* RealmTodoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmTodoItem.swift; sourceTree = "<group>"; };
+		1083E49E1E83A2C200AB3DDB /* RealmStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmStore.swift; sourceTree = "<group>"; };
+		1083E4A01E83B5F600AB3DDB /* ListViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewInterface.swift; sourceTree = "<group>"; };
+		1083E4A21E83C06B00AB3DDB /* AddViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewInterface.swift; sourceTree = "<group>"; };
 		10DFB53C1E8107E8004423B9 /* viper_swift_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = viper_swift_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10DFB53F1E8107E8004423B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10DFB5441E8107E8004423B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,14 +82,10 @@
 		10DFB5611E8107E8004423B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10DFB56E1E810843004423B9 /* AppDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		10DFB5791E810A02004423B9 /* Clock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
-		10DFB57B1E810AB8004423B9 /* TodoItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoItemModel.swift; sourceTree = "<group>"; };
-		10DFB57D1E810C5E004423B9 /* ManagedTodoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedTodoItem.swift; sourceTree = "<group>"; };
-		10DFB57F1E810CE3004423B9 /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
+		10DFB57B1E810AB8004423B9 /* TodoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 		10DFB5821E811746004423B9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		10DFB5851E8117B5004423B9 /* TODO.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TODO.xcdatamodel; sourceTree = "<group>"; };
 		10DFB5871E811A03004423B9 /* RootWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootWireframe.swift; sourceTree = "<group>"; };
 		10DFB5891E811B8E004423B9 /* Calendar+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Calendar+Additions.swift"; sourceTree = "<group>"; };
-		10F9923F1E81F3C400165014 /* ListModuleInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListModuleInterface.swift; sourceTree = "<group>"; };
 		10F992421E81F64500165014 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		10F992431E81F64500165014 /* ListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
 		10F992471E82022F00165014 /* ListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
@@ -96,9 +96,7 @@
 		10F992521E8221E200165014 /* UpcomingDisplayDataCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingDisplayDataCollection.swift; sourceTree = "<group>"; };
 		10F992541E8224F800165014 /* ListDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDataManager.swift; sourceTree = "<group>"; };
 		10F992551E8224F800165014 /* ListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListInteractor.swift; sourceTree = "<group>"; };
-		10F992561E8224F800165014 /* UpcomingItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingItem.swift; sourceTree = "<group>"; };
 		10F9925D1E8228F600165014 /* AddModuleInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddModuleInterface.swift; sourceTree = "<group>"; };
-		10F9925F1E82293600165014 /* AddModuleDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddModuleDelegate.swift; sourceTree = "<group>"; };
 		10F992611E822A4A00165014 /* AddInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddInteractor.swift; sourceTree = "<group>"; };
 		10F992631E822AC300165014 /* AddDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDataManager.swift; sourceTree = "<group>"; };
 		10F992651E822CB900165014 /* AddPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPresenter.swift; sourceTree = "<group>"; };
@@ -107,6 +105,11 @@
 		10F9926E1E823DCD00165014 /* AddPresentationTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPresentationTransition.swift; sourceTree = "<group>"; };
 		10F992701E823E9400165014 /* AddDismissalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDismissalTransition.swift; sourceTree = "<group>"; };
 		10F992741E82470000165014 /* AddWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWireframe.swift; sourceTree = "<group>"; };
+		10F992761E82517000165014 /* ListEntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListEntryCell.swift; sourceTree = "<group>"; };
+		10F992771E82517000165014 /* ListEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListEntryCell.xib; sourceTree = "<group>"; };
+		AA500D1A3525D40CC0DB8112 /* Pods-viper_swift_demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-viper_swift_demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-viper_swift_demo/Pods-viper_swift_demo.release.xcconfig"; sourceTree = "<group>"; };
+		B2F07BAD387279DA81CAA8A1 /* Pods_viper_swift_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_viper_swift_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4AD4995C6653A31DD9C6942 /* Pods-viper_swift_demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-viper_swift_demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-viper_swift_demo/Pods-viper_swift_demo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10DFB5831E811746004423B9 /* CoreData.framework in Frameworks */,
+				F1ADB9DD796792DF18CD8AB1 /* Pods_viper_swift_demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +138,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1083E4A41E8499FC00AB3DDB /* Style */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
 		10DFB5331E8107E8004423B9 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +153,7 @@
 				10DFB55E1E8107E8004423B9 /* viper_swift_demoUITests */,
 				10DFB53D1E8107E8004423B9 /* Products */,
 				10DFB5811E811746004423B9 /* Frameworks */,
+				D6B2B718AA7735790C13EA16 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -212,7 +223,6 @@
 				10F992491E8207F300165014 /* Interactor */,
 				10F992461E82020000165014 /* Presenter */,
 				10F992411E81F5EF00165014 /* UserInterface */,
-				10F9923F1E81F3C400165014 /* ListModuleInterface.swift */,
 				10F992501E8213B000165014 /* ListWireframe.swift */,
 			);
 			path = List;
@@ -226,8 +236,8 @@
 				10F9925B1E8228E400165014 /* Presenter */,
 				10F9925C1E8228E400165014 /* UserInterface */,
 				10F9925D1E8228F600165014 /* AddModuleInterface.swift */,
+				1083E4A21E83C06B00AB3DDB /* AddViewInterface.swift */,
 				10F992741E82470000165014 /* AddWireframe.swift */,
-				10F9925F1E82293600165014 /* AddModuleDelegate.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -235,6 +245,7 @@
 		10DFB5731E8109E3004423B9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				1083E4A41E8499FC00AB3DDB /* Style */,
 				10DFB5741E8109E3004423B9 /* Clock */,
 				10DFB5751E8109E3004423B9 /* Extension */,
 				10DFB5761E8109E3004423B9 /* Model */,
@@ -263,7 +274,7 @@
 		10DFB5761E8109E3004423B9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				10DFB57B1E810AB8004423B9 /* TodoItemModel.swift */,
+				10DFB57B1E810AB8004423B9 /* TodoItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,9 +282,8 @@
 		10DFB5771E8109E3004423B9 /* Store */ = {
 			isa = PBXGroup;
 			children = (
-				10DFB57D1E810C5E004423B9 /* ManagedTodoItem.swift */,
-				10DFB57F1E810CE3004423B9 /* CoreDataStore.swift */,
-				10DFB5841E8117B5004423B9 /* TODO.xcdatamodeld */,
+				1083E45A1E825C5E00AB3DDB /* RealmTodoItem.swift */,
+				1083E49E1E83A2C200AB3DDB /* RealmStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -290,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				10DFB5821E811746004423B9 /* CoreData.framework */,
+				B2F07BAD387279DA81CAA8A1 /* Pods_viper_swift_demo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -297,8 +308,11 @@
 		10F992411E81F5EF00165014 /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				1083E4A01E83B5F600AB3DDB /* ListViewInterface.swift */,
 				10F992421E81F64500165014 /* ListViewController.swift */,
 				10F992431E81F64500165014 /* ListViewController.xib */,
+				10F992761E82517000165014 /* ListEntryCell.swift */,
+				10F992771E82517000165014 /* ListEntryCell.xib */,
 			);
 			path = UserInterface;
 			sourceTree = "<group>";
@@ -320,7 +334,6 @@
 			children = (
 				10F992541E8224F800165014 /* ListDataManager.swift */,
 				10F992551E8224F800165014 /* ListInteractor.swift */,
-				10F992561E8224F800165014 /* UpcomingItem.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -360,6 +373,15 @@
 			path = Transition;
 			sourceTree = "<group>";
 		};
+		D6B2B718AA7735790C13EA16 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C4AD4995C6653A31DD9C6942 /* Pods-viper_swift_demo.debug.xcconfig */,
+				AA500D1A3525D40CC0DB8112 /* Pods-viper_swift_demo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -367,9 +389,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 10DFB5641E8107E8004423B9 /* Build configuration list for PBXNativeTarget "viper_swift_demo" */;
 			buildPhases = (
+				2387EF4CAC04175EF6C8BC9D /* [CP] Check Pods Manifest.lock */,
 				10DFB5381E8107E8004423B9 /* Sources */,
 				10DFB5391E8107E8004423B9 /* Frameworks */,
 				10DFB53A1E8107E8004423B9 /* Resources */,
+				7A1CB0E7F961CC9D3636A216 /* [CP] Embed Pods Frameworks */,
+				06A3C542306E623D1679E458 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -428,6 +453,7 @@
 				TargetAttributes = {
 					10DFB53B1E8107E8004423B9 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = UE4HZRGDJ7;
 						ProvisioningStyle = Automatic;
 					};
 					10DFB54F1E8107E8004423B9 = {
@@ -467,6 +493,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10F992791E82517000165014 /* ListEntryCell.xib in Resources */,
 				10DFB54A1E8107E8004423B9 /* LaunchScreen.storyboard in Resources */,
 				10DFB5471E8107E8004423B9 /* Assets.xcassets in Resources */,
 				10F9926A1E822DC300165014 /* AddViewController.xib in Resources */,
@@ -491,40 +518,87 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		06A3C542306E623D1679E458 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-viper_swift_demo/Pods-viper_swift_demo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2387EF4CAC04175EF6C8BC9D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7A1CB0E7F961CC9D3636A216 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-viper_swift_demo/Pods-viper_swift_demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		10DFB5381E8107E8004423B9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10DFB5801E810CE3004423B9 /* CoreDataStore.swift in Sources */,
 				10F992571E8224F800165014 /* ListDataManager.swift in Sources */,
 				10DFB57A1E810A02004423B9 /* Clock.swift in Sources */,
 				10F992751E82470000165014 /* AddWireframe.swift in Sources */,
-				10DFB57E1E810C5E004423B9 /* ManagedTodoItem.swift in Sources */,
 				10F992661E822CB900165014 /* AddPresenter.swift in Sources */,
+				1083E4A31E83C06B00AB3DDB /* AddViewInterface.swift in Sources */,
 				10F992711E823E9400165014 /* AddDismissalTransition.swift in Sources */,
-				10F992601E82293600165014 /* AddModuleDelegate.swift in Sources */,
 				10F992621E822A4A00165014 /* AddInteractor.swift in Sources */,
+				1083E49F1E83A2C200AB3DDB /* RealmStore.swift in Sources */,
 				10DFB56F1E810843004423B9 /* AppDependencies.swift in Sources */,
 				10DFB5881E811A03004423B9 /* RootWireframe.swift in Sources */,
 				10F9926F1E823DCD00165014 /* AddPresentationTransition.swift in Sources */,
 				10F9925E1E8228F600165014 /* AddModuleInterface.swift in Sources */,
-				10F992591E8224F800165014 /* UpcomingItem.swift in Sources */,
+				1083E45B1E825C5E00AB3DDB /* RealmTodoItem.swift in Sources */,
 				10F992581E8224F800165014 /* ListInteractor.swift in Sources */,
 				10F992441E81F64500165014 /* ListViewController.swift in Sources */,
-				10DFB57C1E810AB8004423B9 /* TodoItemModel.swift in Sources */,
+				10DFB57C1E810AB8004423B9 /* TodoItem.swift in Sources */,
 				10F992641E822AC300165014 /* AddDataManager.swift in Sources */,
+				10F992781E82517000165014 /* ListEntryCell.swift in Sources */,
 				10F9924D1E820F7E00165014 /* UpcomingDispalyData.swift in Sources */,
-				10DFB5861E8117B5004423B9 /* TODO.xcdatamodeld in Sources */,
 				10DFB58A1E811B8E004423B9 /* Calendar+Additions.swift in Sources */,
 				10F992481E82022F00165014 /* ListPresenter.swift in Sources */,
 				10F9924F1E8210CF00165014 /* UpcomingDisplaySection.swift in Sources */,
 				10F9924B1E820AB700165014 /* UpcomingDisplayItem.swift in Sources */,
 				10F992511E8213B000165014 /* ListWireframe.swift in Sources */,
+				1083E4A11E83B5F600AB3DDB /* ListViewInterface.swift in Sources */,
 				10F992531E8221E200165014 /* UpcomingDisplayDataCollection.swift in Sources */,
 				10DFB5401E8107E8004423B9 /* AppDelegate.swift in Sources */,
 				10F992691E822DC300165014 /* AddViewController.swift in Sources */,
-				10F992401E81F3C400165014 /* ListModuleInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,8 +746,10 @@
 		};
 		10DFB5651E8107E8004423B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4AD4995C6653A31DD9C6942 /* Pods-viper_swift_demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = UE4HZRGDJ7;
 				INFOPLIST_FILE = viper_swift_demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "PSL.viper-swift-demo";
@@ -684,8 +760,10 @@
 		};
 		10DFB5661E8107E8004423B9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA500D1A3525D40CC0DB8112 /* Pods-viper_swift_demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = UE4HZRGDJ7;
 				INFOPLIST_FILE = viper_swift_demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "PSL.viper-swift-demo";
@@ -788,19 +866,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		10DFB5841E8117B5004423B9 /* TODO.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				10DFB5851E8117B5004423B9 /* TODO.xcdatamodel */,
-			);
-			currentVersion = 10DFB5851E8117B5004423B9 /* TODO.xcdatamodel */;
-			path = TODO.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 10DFB5341E8107E8004423B9 /* Project object */;
 }

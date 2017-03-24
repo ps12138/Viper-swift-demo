@@ -9,37 +9,53 @@
 import UIKit
 
 
-protocol AddViewInterface {
-    func setEntry(name: String)
-    func setEntry(dueDate date: Date)
-    func set(minDueDate date: Date)
-}
 
+
+
+fileprivate let AddViewControllerNib = "AddViewController"
 
 class AddViewController: UIViewController {
 
-    // MARK: - properties
-    weak var eventHandler: AddModuleInterface?
-    
+    // MARK: - properties owned
     var minDate = Date()
     var transitioningBackgroundView = UIView()
+    
+    // MARK: - delegate
+    weak var eventHandler: AddViewToPresenterDelegate?
     
     // MARK: - View
     @IBOutlet weak var nameTextField: UITextField?
     @IBOutlet weak var datePicker: UIDatePicker?
     
     // MARK: - Target action
-    @IBAction func save(sender: Any) {
-        if let name = nameTextField?.text,
-            let dueDate = datePicker?.date {
-            
-            eventHandler?.saveAddAction(name: name, dueDate: dueDate)
+    @IBAction func save(sender: UIButton) {
+        var name = "No name"
+        if let validName = nameTextField?.text,
+            validName.isEmpty == false {
+            name = validName
         }
+        let dueDate = datePicker?.date ?? Date()
+        print("Save DueDate: \(dueDate)")
+        
+        eventHandler?.saveAddAction(name: name, dueDate: dueDate)
     }
     
-    @IBAction func cancel(sender: Any) {
+    @IBAction func cancel(sender: UIButton) {
         nameTextField?.resignFirstResponder()
         eventHandler?.cancelAddAction()
+    }
+    
+    
+    // MARK: - init
+    init() {
+        super.init(nibName: AddViewControllerNib, bundle: nil)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    convenience init(title: String) {
+        self.init()
+        self.title = title
     }
 }
 
@@ -78,7 +94,7 @@ extension AddViewController {
 
 
 // MARK: - AddViewInterface
-extension AddViewController: AddViewInterface {
+extension AddViewController: PresenterToAddViewDelegate {
     func setEntry(name: String) {
         nameTextField?.text = name
     }

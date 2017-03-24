@@ -10,13 +10,9 @@ import Foundation
 
 
 class AddDataManager {
-    var dataStore: CoreDataStore?
+    var dataStore: RealmStore?
     
-    func addNewEntry(_ entry: TodoItemModel) {
-        if let newEntry = self.dataStore?.newTodoItem() {
-            newEntry.name = entry.name
-            newEntry.date = entry.dueDate
-            self.dataStore?.save()
-        }
+    func addNewEntry(_ entry: TodoItem) {
+        self.dataStore?.save(entry)
     }
 }

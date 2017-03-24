@@ -9,47 +9,50 @@
 import UIKit
 
 
-/// ListView Interface API
-protocol ListViewInterface: class {
-    func show(noContentMessage title: String)
-    func show(upcomingDispalyData data: UpcomingDisplayData)
-    func reloadEntries()
-}
-
-
-
+fileprivate let ListViewControllerNib = "ListViewController"
 fileprivate var ListEntryCellId = "ListEntryCell"
 
 class ListViewController: UITableViewController {
         
-    // MARK: - properties
-    var eventHandler: ListModuleInterface?
+    // MARK: - properties owned
     var dataProperty: UpcomingDisplayData?
-    var strongTableView: UITableView?
+    var strongtableView: UITableView?
+    var noContentView: UITableView?
     
+    // MARK: - properties delegate
+    var eventHandler: ListViewDelegate?
     
     // MARK: - ViewController life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        strongTableView = self.tableView
+        strongtableView = self.tableView
+        self.tableView.register(UINib(nibName: ListEntryCellId, bundle: nil), forCellReuseIdentifier: ListEntryCellId)
+        tableView.estimatedRowHeight = 20.0
+        tableView.rowHeight = UITableViewAutomaticDimension
         configureView()
-        
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         eventHandler?.updateView()
     }
+
+    // MARK: - init
+    init() {
+        super.init(nibName: ListViewControllerNib, bundle: nil)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    convenience init(title: String) {
+        self.init()
+        self.title = title
+    }
 }
 
 // MARK: - TableView dataSource
 extension ListViewController {
-
     
-    /// numberOfSections
-    ///
-    /// - Parameter tableView: UITableView
-    /// - Returns: numberOfSections, Int
     override func numberOfSections(in tableView: UITableView) -> Int {
         
         if let numberOfSections = dataProperty?.sections.count {
@@ -58,13 +61,6 @@ extension ListViewController {
         return 0
     }
     
-    
-    /// numberOfRowsInSection
-    ///
-    /// - Parameters:
-    ///   - tableView: UITableView
-    ///   - section: section Int
-    /// - Returns: numberOfRowsInSection, Int
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if let upcomingSection = dataProperty?.sections[section].count {
@@ -73,56 +69,71 @@ extension ListViewController {
         return 0
     }
     
-    
-    /// titleForHeaderInSection
-    ///
-    /// - Parameters:
-    ///   - tableView: UITableView
-    ///   - section: section Int
-    /// - Returns: titleForHeaderInSection, String?
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        if let upcomingSectionTitle = dataProperty?.sections[section].name {
-            return upcomingSectionTitle
-        }
-        return nil
+    
+        return self.dataProperty?.fetch(sectionTitle: section)
     }
     
-    
-    /// reuse cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let upcomingSection = dataProperty?.sections[indexPath.section] {
+        if let upcomingSection = dataProperty?.sections[indexPath.section],
+            let cell = tableView.dequeueReusableCell(withIdentifier: ListEntryCellId, for: indexPath) as? ListEntryCell {
             
             let upcomingItem = upcomingSection.items[indexPath.row]
-            let cell = tableView.dequeueReusableCell(withIdentifier: ListEntryCellId, for: indexPath) as UITableViewCell
-            cell.textLabel?.text = upcomingItem.title
-            cell.detailTextLabel?.text = upcomingItem.dueDate
-            cell.imageView?.image = UIImage(named: upcomingSection.imageName)
+            cell.titleLabel?.text = upcomingItem.title
+            cell.detailLabel?.text = upcomingItem.dueWeekday
+            cell.dateLabel?.text = upcomingItem.dueDate
+            //cell.imageView?.image = UIImage(named: upcomingSection.imageName)
             cell.selectionStyle = UITableViewCellSelectionStyle.none
             return cell
         }
         return UITableViewCell()
     }
- 
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        guard let dataProperty = dataProperty else { return }
+        if editingStyle == .delete,
+            let shouldRemove = dataProperty.fetch(item: indexPath) {
+            let res = eventHandler?.removeEntry(shouldRemove)
+            if res == true {
+                _ = dataProperty.remove(item: indexPath)
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                if dataProperty.isConentEmpty == true {
+                    self.tableView.reloadData()
+                }
+                return
+            }
+        }
+        print("List.VC: cannot remove cell in \(indexPath)")
+    }
+    
 }
 
-// MARK: - TableView delegate
+// MARK: - UITableViewDelegate
 extension ListViewController {
     
 }
 
-// MARK: - ListViewInterface
+
+
+
+
+// MARK: - ListViewInterface, Presenter's delegation
 extension ListViewController: ListViewInterface {
     
     /// showNoConentMessage placeholder
     func show(noContentMessage title: String) {
-        view = UIView()
+        self.tableView = noContentView
     }
     
     /// show data
     func show(upcomingDispalyData data: UpcomingDisplayData) {
-        view = strongTableView
+        self.tableView = strongtableView
         dataProperty = data
         reloadEntries()
     }
@@ -131,9 +142,7 @@ extension ListViewController: ListViewInterface {
     func reloadEntries() {
         tableView.reloadData()
     }
-
 }
-
 
 
 // MARK: - internal methods
@@ -141,6 +150,7 @@ extension ListViewController {
     
     /// configureView
     func configureView() {
+        //self.view.backgroundColor = UIColor.lightGray
         navigationItem.title = "VIPER TODO TEST"
         let addItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(self.didTapAddButton))
         navigationItem.rightBarButtonItem = addItem

@@ -13,10 +13,12 @@ class RootWireframe {
     func setRootViewController(_ viewController: UIViewController, inWindow window: UIWindow) {
         if let navigationController = navigationController(from: window) {
             navigationController.viewControllers = [viewController]
+        } else {
+            window.rootViewController = viewController
         }
     }
     
-    func navigationController(from window: UIWindow) -> UINavigationController? {
+    private func navigationController(from window: UIWindow) -> UINavigationController? {
         let navigationController = window.rootViewController as? UINavigationController
         return navigationController
     }

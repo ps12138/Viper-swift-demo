@@ -1,20 +1,74 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddViewController" customModule="viper_swift_demo" customModuleProvider="target">
             <connections>
+                <outlet property="datePicker" destination="qcs-zt-d8Y" id="LWQ-xP-4vB"/>
+                <outlet property="nameTextField" destination="04A-cc-B2I" id="sVc-jG-V9m"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PlaceHolder" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="04A-cc-B2I">
+                    <rect key="frame" x="8" y="0.0" width="398" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Drf-6q-pu4">
+                    <rect key="frame" x="0.0" y="246" width="414" height="42"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1h-4q-M66">
+                            <rect key="frame" x="0.0" y="0.0" width="207" height="42"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                            <state key="normal" title="Save"/>
+                            <connections>
+                                <action selector="saveWithSender:" destination="-1" eventType="touchUpInside" id="yfc-It-7Rn"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7I-YW-4nh">
+                            <rect key="frame" x="207" y="0.0" width="207" height="42"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                            <state key="normal" title="Cancel"/>
+                            <connections>
+                                <action selector="cancelWithSender:" destination="-1" eventType="touchUpInside" id="k3f-qC-c3L"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="qcs-zt-d8Y">
+                    <rect key="frame" x="8" y="30" width="398" height="216"/>
+                    <date key="date" timeIntervalSinceReferenceDate="511855695.140724">
+                        <!--2017-03-22 06:08:15 +0000-->
+                    </date>
+                </datePicker>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="qcs-zt-d8Y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="6Za-rZ-kLx"/>
+                <constraint firstItem="qcs-zt-d8Y" firstAttribute="top" secondItem="04A-cc-B2I" secondAttribute="bottom" id="Iyx-MY-e0M"/>
+                <constraint firstItem="04A-cc-B2I" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="PsI-pv-6hI"/>
+                <constraint firstAttribute="trailing" secondItem="Drf-6q-pu4" secondAttribute="trailing" id="VCK-9O-2y2"/>
+                <constraint firstAttribute="trailingMargin" secondItem="04A-cc-B2I" secondAttribute="trailing" id="YpE-yO-DUJ"/>
+                <constraint firstAttribute="trailingMargin" secondItem="qcs-zt-d8Y" secondAttribute="trailing" id="ct8-kS-syr"/>
+                <constraint firstItem="04A-cc-B2I" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="gRT-Hw-BqR"/>
+                <constraint firstItem="Drf-6q-pu4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qyX-1M-tsc"/>
+                <constraint firstItem="Drf-6q-pu4" firstAttribute="top" secondItem="qcs-zt-d8Y" secondAttribute="bottom" id="ww1-Ws-5uy"/>
+            </constraints>
+            <point key="canvasLocation" x="33" y="53"/>
         </view>
     </objects>
 </document>

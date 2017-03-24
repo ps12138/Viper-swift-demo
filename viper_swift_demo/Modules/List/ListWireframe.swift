@@ -10,31 +10,27 @@ import Foundation
 import UIKit
 
 
-fileprivate let ListViewControllerId = "ListViewController"
-fileprivate let MainStoryboardId = "main"
-
 class ListWireframe {
     
-    // MARK: - properties
-    var addWireframe: AddWireframe?
-    var listPresenter: ListPresenter?
+    // MARK: - properties connencting
+    weak var listViewController: ListViewController?
+    
+    
+    
+    // MARK: - properties owned
     var rootWireframe: RootWireframe?
-    var listViewController: ListViewController?
+    var listPresenter: ListPresenter?
+    var addWireframe: AddWireframe?
     
-    // MARK: - func
-    
-    ///
+    // MARK: - internal methods
     func present(listInterfaceTo window: UIWindow) {
-        if let viewController = instantiate(listViewController: ListViewControllerId, from: MainStoryboardId) {
-            
-            viewController.eventHandler = listPresenter
-            listViewController = viewController
-            listPresenter?.userInterface = viewController
-            rootWireframe?.setRootViewController(viewController, inWindow: window)
-        }
+        let viewController = instantiateListViewController()
+        viewController.eventHandler = listPresenter
+        listViewController = viewController
+        listPresenter?.viewController = viewController
+        rootWireframe?.setRootViewController(viewController, inWindow: window)
     }
     
-    ///
     func presentAddInterface() {
         if let listViewController = listViewController {
             addWireframe?.presentAddInterfaceFromViewController(viewController: listViewController)
@@ -42,19 +38,10 @@ class ListWireframe {
     }
     
     // MARK: - private methods
-    private func instantiate(listViewController viewControllerId: String, from storyboardId: String) -> ListViewController? {
-        
-        let storyboard = fetch(storyboard: storyboardId)
-        if let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerId) as? ListViewController {
-            return viewController
+    private func instantiateListViewController() -> ListViewController {
+        if let listViewController = self.listViewController {
+            return listViewController
         }
-        return nil
+        return ListViewController(title: "ListViewController")
     }
-    
-    
-    private func fetch(storyboard name: String) -> UIStoryboard {
-        return UIStoryboard(name: name, bundle: Bundle.main)
-    }
-    
-    
 }

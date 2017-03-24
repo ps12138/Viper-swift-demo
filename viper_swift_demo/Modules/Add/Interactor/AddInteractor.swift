@@ -14,7 +14,7 @@ class AddInteractor {
     var addDataManager: AddDataManager?
     
     func save(newEntry name: String, dueDate: Date) {
-        let newEntry = TodoItemModel(dueDate: dueDate, name: name)
+        let newEntry = TodoItem(dueDate: dueDate, name: name)
         addDataManager?.addNewEntry(newEntry)
     }
     

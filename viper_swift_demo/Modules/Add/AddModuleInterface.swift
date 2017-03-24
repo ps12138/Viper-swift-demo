@@ -8,7 +8,9 @@
 
 import Foundation
 
-protocol AddModuleInterface: class {
-    func cancelAddAction()
-    func saveAddAction(name: String, dueDate: Date)
+
+protocol AddModuleDelegate: class {
+    func addModuleDidCancelAddAction()
+    func addModuleDidSaveAddAction()
 }
+

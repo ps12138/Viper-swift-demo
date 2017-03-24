@@ -24,18 +24,17 @@ struct UpcomingDisplaySection {
     }
 }
 
-
 extension UpcomingDisplaySection {
     var count: Int {
-        return items.count
+        return self.items.count
+    }
+    var isEmpty: Bool {
+        return self.items.isEmpty
     }
 }
 
-
-
 extension UpcomingDisplaySection: Equatable {
     static func ==(left: UpcomingDisplaySection, right: UpcomingDisplaySection) -> Bool {
-        
         return left.items == right.items
     }
 }

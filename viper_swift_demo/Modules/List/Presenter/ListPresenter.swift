@@ -10,55 +10,60 @@ import Foundation
 
 
 class ListPresenter {
+
+    // MARK: - properties connencting
+    weak var listWireframe: ListWireframe?
     
-    // MARK: - properties
+    // MARK: - properties owned
+    
     var listInteractor: ListInteractorInputDelegate?
-    var listWireframe: ListWireframe?
-    var userInterface: ListViewInterface?
     
-    func updateUserInterfaceWithUpcomingItems(upcomingItems: [UpcomingItem]) {
-        let upcomingDisplayData = upcomingDisplayDataWithItems(upcomingItems)
-        userInterface?.show(upcomingDispalyData: upcomingDisplayData)
+    // MARK: - delegate
+    weak var viewController: ListViewInterface?
+    
+    func updateViewController(with items: [TodoItem]) {
+        let viewModel = upcomingDisplayDataSet(with: items)
+        viewController?.show(upcomingDispalyData: viewModel)
     }
     
-    func upcomingDisplayDataWithItems(_ upcomingItems: [UpcomingItem]) -> UpcomingDisplayData {
-        let collection = UpcomingDisplayDataCollection()
-        collection.addUpcomingItems(upcomingItems)
+    func upcomingDisplayDataSet(with items: [TodoItem]) -> UpcomingDisplayData {
+        let collection = UpcomingDisplayDataCollection(clock: DeviceClock())
+        collection.addUpcomingItems(items)
         return collection.collectedDisplayData()
     }
-    
-}
-
-
-
-extension ListPresenter {
-    
     
 }
 
 // MARK: - ListInteractorOutputDelegate
 extension ListPresenter: ListInteractorOutputDelegate {
     /// 
-    func foundUpcomingItems(upcomingItems: [UpcomingItem]) {
-        if upcomingItems.isEmpty {
-            userInterface?.show(noContentMessage: "Sorry, We cannot find content")
+    func foundUpcomingItems(items: [TodoItem]) {
+        if items.isEmpty {
+            self.viewController?.show(noContentMessage: "Sorry, We cannot find content")
         } else {
-            
+            self.updateViewController(with: items)
         }
     }
 }
 
-// MARK: - interface ListModuleInterface
-extension ListPresenter: ListModuleInterface {
+// MARK: - ListViewDelegate
+extension ListPresenter: ListViewDelegate {
     func addNewEntry() {
         listWireframe?.presentAddInterface()
     }
     
     func updateView() {
-        listInteractor?.findUpcomingItems()
+        listInteractor?.findNewItems()
+    }
+    
+    func removeEntry(_ entry: UpcomingDisplayItem) -> Bool {
+        let primaryKey = entry.primaryKey
+        if let res = self.listInteractor?.removeItem(by: primaryKey) {
+            return res
+        }
+        return false
     }
 }
-
 
 //MARK: - Delegation AddModuleDelegate
 extension ListPresenter: AddModuleDelegate {
@@ -70,10 +75,3 @@ extension ListPresenter: AddModuleDelegate {
         self.updateView()
     }
 }
-
-
-
-
-
-
-

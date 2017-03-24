@@ -10,29 +10,31 @@ import Foundation
 
 
 struct UpcomingDisplayItem {
-    var title: String = ""
-    var dueDate: String = ""
+    
+    var primaryKey: String
+    var title: String
+    var dueWeekday: String
+    var dueDate: String
+    var dateRelation: DateRelation
+    
 
-    init(title: String, dueDate: String) {
+    init(primaryKey: String, title: String, dueWeekday: String, dueDate: String, dateRelation: DateRelation) {
+        self.primaryKey = primaryKey
         self.title = title
+        self.dueWeekday = dueWeekday
         self.dueDate = dueDate
+        self.dateRelation = dateRelation
     }
 }
-
 
 extension UpcomingDisplayItem: Equatable {
     static func ==(left: UpcomingDisplayItem, right: UpcomingDisplayItem) -> Bool {
-        let hasEqualSections = left.title == right.title
-        if hasEqualSections == false {
-            return false
-        }
-        return left.dueDate == right.dueDate
+        return left.primaryKey == right.primaryKey
     }
 }
 
-
 extension UpcomingDisplayItem {
     var description: String {
-        return "\(title) -- \(dueDate)"
+        return "PrimaryKey \(primaryKey) -- \(title) -- \(dueWeekday) -- \(dueDate))"
     }
 }

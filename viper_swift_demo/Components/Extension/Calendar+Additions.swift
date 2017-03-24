@@ -104,8 +104,6 @@ extension Calendar {
         return 0
     }
     
-    
-    
     /// Calculate next week end date from today
     ///
     /// - Parameter today: today
@@ -113,12 +111,10 @@ extension Calendar {
     func date(endOfFollowingWeekFrom today: Date) -> Date {
         let endOfWeek = date(endOfWeekWithDate: today)
         var nextWeekComponent = DateComponents()
-        nextWeekComponent.setValue(1, for: .weekday)
+        nextWeekComponent.setValue(1, for: .weekOfYear)
         let followingWeekDate = date(byAdding: nextWeekComponent, to: endOfWeek)
         return followingWeekDate!
     }
-    
-    
     
     /// Only consider YY:MM:DD, leftDate < rightDate
     ///
@@ -132,7 +128,6 @@ extension Calendar {
         return result
     }
     
-
     /// Only consider YY:MM:DD, leftDate == rightDate
     ///
     /// - Parameters:
@@ -145,7 +140,6 @@ extension Calendar {
         return result
     }
 
-
     ///  within the same week
     ///
     /// - Parameters:
@@ -153,12 +147,10 @@ extension Calendar {
     ///   - rightDate: rightDate
     /// - Returns: True: same week, Flase: diff week
     func isDate(_ leftDate: Date, duringSameWeek rightDate: Date) -> Bool {
-        let leftWeekComponent = component(.weekday, from: leftDate)
-        let rightWeekComponent = component(.weekday, from: rightDate)
+        let leftWeekComponent = component(.weekOfYear, from: leftDate)
+        let rightWeekComponent = component(.weekOfYear, from: rightDate)
         return leftWeekComponent == rightWeekComponent
     }
-    
-    
     
     /// leftDate is within next week of rightDate
     ///
@@ -168,9 +160,16 @@ extension Calendar {
     /// - Returns: True: in next week, Flase: not in
     func isDate(_ leftDate: Date, duringWeekAfter rightDate: Date) -> Bool {
         let leftNextWeekEnd = date(endOfFollowingWeekFrom: rightDate)
-        let leftNextWeekComponent = component(.weekday, from: leftNextWeekEnd)
-        let rightWeekComponent = component(.weekday, from: rightDate)
+        let leftNextWeekComponent = component(.weekOfYear, from: leftNextWeekEnd)
+        let rightWeekComponent = component(.weekOfYear, from: rightDate)
         return  leftNextWeekComponent == rightWeekComponent
+    }
+    
+    
+    func isDate(_ leftDate: Date, duringSameMonth rightDate: Date) -> Bool {
+        let leftWeekComponent = component(.month, from: leftDate)
+        let rightWeekComponent = component(.month, from: rightDate)
+        return leftWeekComponent == rightWeekComponent
     }
 
     
@@ -180,8 +179,8 @@ extension Calendar {
     ///   - leftDate: left date
     ///   - rightDate: right date
     /// - Returns: NerTermDateReplation
-    func date(relationfrom leftDate: Date, relativeTo rightDate: Date) -> NearTermDateRelation {
-        var relation = NearTermDateRelation.OutOfRange
+    func date(relationfrom leftDate: Date, relativeTo rightDate: Date) -> DateRelation {
+        var relation = DateRelation.OutOfRange
 
         let rightTomorrow = date(tomorrowOfToday: rightDate)
 
@@ -189,29 +188,37 @@ extension Calendar {
         let isLeftDateEqualTo = isDate(leftDate, equalTo: rightDate)
         let isleftDateEqualToRightTomorrow = isDate(leftDate, equalTo: rightTomorrow)
         let isLeftDateDuringSameWeek = isDate(leftDate, duringSameWeek: rightDate)
-        let isLeftDateDuringSameWeekAfter = isDate(leftDate, duringWeekAfter: rightDate)
-
+        let isLeftDateDuringNextWeek = isDate(leftDate, duringWeekAfter: rightDate)
+        let isLeftDateDuringSameMonth = isDate(leftDate, duringSameMonth: rightDate)
+        
         // left < right
         if isLeftDateBefore {
-            relation = NearTermDateRelation.OutOfRange
+            relation = .OutOfRange
         // left == right
         } else if isLeftDateEqualTo {
-            relation = NearTermDateRelation.Today
+            relation = DateRelation.Today
         // left == right + 1
         } else if isleftDateEqualToRightTomorrow {
             // left right within same week
             if isLeftDateDuringSameWeek {
-                relation = NearTermDateRelation.Tomorrow
+                relation = .Tomorrow
             // left in right's next week
             } else {
-                relation = NearTermDateRelation.NextWeek
+                relation = .NextWeek
             }
         // left > right + 1, within same week
         } else if isLeftDateDuringSameWeek {
-            relation = NearTermDateRelation.LaterThisWeek
+            relation = .LaterThisWeek
         // left > right + 1, with diff week
-        } else if isLeftDateDuringSameWeekAfter {
-            relation = NearTermDateRelation.NextWeek
+        } else if isLeftDateDuringNextWeek {
+            if isLeftDateDuringSameMonth {
+                relation = .NextWeek
+            } else {
+                relation = .OutOfRange
+            }
+        // left > right, in the same month
+        } else if isLeftDateDuringSameMonth{
+            relation = .LaterThisMonth
         }
         return relation
     }

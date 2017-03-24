@@ -12,25 +12,39 @@ import Foundation
 import Foundation
 
 class UpcomingDisplayDataCollection {
-    let dayFormatter = DateFormatter()
-    var sections = Dictionary<NearTermDateRelation, [UpcomingDisplayItem]>()
     
-    init() {
-        dayFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "EEEE", options: 0, locale: Locale.autoupdatingCurrent)
+    let clock: Clock
+    let dayFormatter = DateFormatter()
+    let dateFormatter = DateFormatter()
+    var sections = Dictionary<DateRelation, [UpcomingDisplayItem]>()
+    
+    init(clock: Clock) {
+        
+        self.clock = clock
+        self.dayFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "EEEE", options: 0, locale: Locale.autoupdatingCurrent)
+        self.dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "dd-MMM-yyyy HH:mm.ss", options: 0, locale: Locale.autoupdatingCurrent)
     }
     
-    func addUpcomingItems(_ upcomingItems: [UpcomingItem]) {
-        for upcomingItem in upcomingItems {
-            addUpcomingItem(upcomingItem)
+    
+    /// process TodoItem array to DispalyData Set
+    ///
+    /// - Parameter items: [TodoItem]
+    func addUpcomingItems(_ items: [TodoItem]) {
+        for item in items {
+            self.addUpcomingItem(item)
         }
     }
-    
-    func addUpcomingItem(_ upcomingItem: UpcomingItem) {
-        let displayItem = displayItemForUpcomingItem(upcomingItem)
-        addDisplayItem(displayItem, dateRelation: upcomingItem.dateRelation)
+
+    /// process single TodoItem to DispalyData Set
+    ///
+    /// - Parameter item: TodoItem
+    func addUpcomingItem(_ todoItem: TodoItem) {
+        let aDisplayItem = displayItem(from: todoItem)
+        addDisplayItem(aDisplayItem, dateRelation: aDisplayItem.dateRelation)
     }
     
-    func addDisplayItem(_ displayItem: UpcomingDisplayItem, dateRelation: NearTermDateRelation) {
+    func addDisplayItem(_ displayItem: UpcomingDisplayItem, dateRelation: DateRelation) {
+        
         if var realSection: [UpcomingDisplayItem] = sections[dateRelation] {
             realSection.append(displayItem)
             sections[dateRelation] = realSection
@@ -41,17 +55,29 @@ class UpcomingDisplayDataCollection {
         }
     }
     
-    func displayItemForUpcomingItem(_ upcomingItem: UpcomingItem) -> UpcomingDisplayItem {
-        let day = formattedDay(upcomingItem.dueDate, dateRelation: upcomingItem.dateRelation)
-        let displayItem = UpcomingDisplayItem(title: upcomingItem.title, dueDate: day)
+    
+    func displayItem(from todoItem: TodoItem) -> UpcomingDisplayItem {
+        let calendar = Calendar.autoupdatingCurrent
+        let dateRelation = calendar.date(relationfrom: todoItem.dueDate, relativeTo: self.clock.today())
+        
+        let dueWeekday = formattedDay(todoItem.dueDate, dateRelation: dateRelation)
+        let dueDate = dateFormatter.string(from: todoItem.dueDate)
+        
+        let displayItem = UpcomingDisplayItem(
+                primaryKey: todoItem.primaryKey,
+                title: todoItem.name,
+                dueWeekday: dueWeekday,
+                dueDate: dueDate,
+                dateRelation: dateRelation
+            )
         return displayItem
     }
     
-    func formattedDay(_ date: Date, dateRelation: NearTermDateRelation) -> String {
-        if dateRelation == NearTermDateRelation.Today {
-            return ""
+    
+    func formattedDay(_ date: Date, dateRelation: DateRelation) -> String {
+        if dateRelation == DateRelation.Today {
+            return "Today"
         }
-        
         return dayFormatter.string(from: date)
     }
     
@@ -60,7 +86,7 @@ class UpcomingDisplayDataCollection {
         return UpcomingDisplayData(sections: collectedSections)
     }
     
-    func displaySectionForDateRelation(_ dateRelation: NearTermDateRelation) -> UpcomingDisplaySection {
+    func displaySectionForDateRelation(_ dateRelation: DateRelation) -> UpcomingDisplaySection {
         let sectionTitle = sectionTitleForDateRelation(dateRelation)
         let imageName = sectionImageNameForDateRelation(dateRelation)
         let items = sections[dateRelation]
@@ -82,31 +108,35 @@ class UpcomingDisplayDataCollection {
         return displaySections
     }
     
-    func sortedNearTermDateRelations() -> [NearTermDateRelation] {
-        var array = Array<NearTermDateRelation>()
-        array.insert(.Today, at: 0)
-        array.insert(.Tomorrow, at: 1)
-        array.insert(.LaterThisWeek, at: 2)
-        array.insert(.NextWeek, at: 3)
+    func sortedNearTermDateRelations() -> [DateRelation] {
+        var array = Array<DateRelation>()
+        array.append(.Today)
+        array.append(.Tomorrow)
+        array.append(.LaterThisWeek)
+        array.append(.NextWeek)
+        array.append(.LaterThisMonth)
+        array.append(.OutOfRange)
         return array
     }
     
-    func sectionTitleForDateRelation(_ dateRelation: NearTermDateRelation) -> String {
+    func sectionTitleForDateRelation(_ dateRelation: DateRelation) -> String {
         switch dateRelation {
         case .Today:
             return "Today"
         case .Tomorrow:
             return "Tomorrow"
         case .LaterThisWeek:
-            return "Later This Week"
+            return "Later in this Week"
         case .NextWeek:
             return "Next Week"
+        case .LaterThisMonth:
+            return "Later in this Month"
         case .OutOfRange:
-            return "Unknown"
+            return "Beyond this Month"
         }
     }
     
-    func sectionImageNameForDateRelation(_ dateRelation: NearTermDateRelation) -> String {
+    func sectionImageNameForDateRelation(_ dateRelation: DateRelation) -> String {
         switch dateRelation {
         case .Today:
             return "check"
@@ -115,6 +145,8 @@ class UpcomingDisplayDataCollection {
         case .LaterThisWeek:
             return "circle"
         case .NextWeek:
+            return "calendar"
+        case .LaterThisMonth:
             return "calendar"
         case .OutOfRange:
             return "paper"
