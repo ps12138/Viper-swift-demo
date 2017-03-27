@@ -6,6 +6,6 @@
 - [x] add/remove item  
 - [x] sort item by date relation  
 - [x] optimaized item remove
-- [ ] updating existed items  
-- [ ] review passed items  
+- [ ] editable existing items  
+- [ ] review previous items  
 - [ ] make items important  
